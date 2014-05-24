@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Coursera Project based on:</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Coursera Project based on:</h1>
+
+<p>Human Activity Recognition Using Smartphones Dataset
+Version 1.0</p>
+
+<h2>Original Project Contributors:</h2>
+
+<p>Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+Smartlab - Non Linear Complex Systems Laboratory
+DITEN - Universit? degli Studi di Genova.
+Via Opera Pia 11A, I-16145, Genoa, Italy.
+<a href="mailto:activityrecognition@smartlab.ws">activityrecognition@smartlab.ws</a>
+<a href="http://www.smartlab.ws">www.smartlab.ws</a></p>
+
+<h3>From the Readme.txt of the original project</h3>
+
+<p>The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. </p>
+
+<p>The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See &#39;features_info.txt&#39; for more details. </p>
+
+<h3>Objectives of Coursera Project</h3>
+
+<p>Created one R script called run_analysis.R that does the following. </p>
+
+<ol>
+<li><p>Merges the training and the test sets to create one data set.</p></li>
+<li><p>Extracts only the measurements on the mean and standard deviation for each measurement. </p></li>
+<li><p>Uses descriptive activity names to name the activities in the data set</p></li>
+<li><p>Appropriately labels the data set with descriptive activity names. </p></li>
+<li><p>Creates a second, independent tidy data set with the average of each variable for each activity and each subject. </p></li>
+</ol>
+
+<h3>Design of run_analysis.R</h3>
+
+<ol>
+<li><p>All file directories are relative to &#39;UCI HAR Dataset&#39; main directory. </p></li>
+<li><p>The 2 main sub-directories are train and test which contain the data files: </p>
+
+<ul>
+<li><b>X_train.txt</b> and <b>X_test.txt</b> (measurement data)</li>
+<li><b>y_test.txt</b> and <b>y_train.txt</b> (activity codes)</li>
+<li><b>subject_test.txt</b> and <b>subject_train.txt</b> (IDs of the volunteers)</li>
+<li><b>activity_labels.txt</b> in the main directory (labels corresponding to the activity codes)</li>
+<li><b>features.txt</b> contains the descriptions of each column of the measurement data. The file <b>names.txt</b> is modifed version of features.txt</li>
+<li><b>meanStd.txt</b> (created for this project) contains the descriptions of columns that will go in the &#39;tidy&#39; data frame. It is a subset of names.txt.</li>
+<li><b>codebook.md</b> contains </li>
+</ul></li>
+<li><p>Read each of the files into their respective data frames</p></li>
+<li><p>Add activity codes and subject ids to the data frames as columns</p></li>
+<li><p>Replace the activity codes with the activity labels</p></li>
+<li><p>Combine each of the train and test sets into a single data frame (final data frame)</p></li>
+<li><p>File names.txt is derived from features.txt and contains the column names to be used in the final data frame. Names in features.txt are not very R-friendly. All hyphens, parenthesis were replaced by periods. (Although, mixed-case and periods are not considered standard, they were retained to keep the names readable).</p></li>
+<li><p>Using &#39;melt&#39; the data frame is re-shaped so the subject and activity label codes are first and the data frame is sorted with the subject and activity labels as keys.</p></li>
+<li><p>Using dcast and mean the averages are calculated for each subject-activity aggregate.</p></li>
+<li><p>This yeilds a tidy data frame</p></li>
+</ol>
+
+</body>
+
+</html>
+
