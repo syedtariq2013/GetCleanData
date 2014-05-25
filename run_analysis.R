@@ -48,7 +48,7 @@ names <- read.csv(paste(main.dir,"names.txt",sep=""),sep="",header=FALSE,colClas
 
 # add column names to x.combined
 colnames(x.combined) <- names$V2
-write.table(x.combined,file="x_combined.txt")
+write.table(x.combined,file="x_combined.txt") # This is the tidy data file attached as requested.
 
 # create vector of mean-std columns
 mean.std <- read.csv(paste(main.dir,"meanStd.txt",sep=""),sep="",header=FALSE,colClasses="character")
@@ -60,9 +60,9 @@ t1.melt <- melt(t1,id=c("subject","activity"))
 # Following creates a second, independent tidy data set with the average of each variable for 
 # each activity and each subject. 
 # calculate the averages using dcast to aggregrate according to subject and activity.
-# tidy.data is the resulting data frame. This df is the required 'tidy data'. Using a write command it can 
+# tidy.data is the resulting data frame. This df is the required 'analysis.data'. Using a write command it can 
 # be saved as a file.
-tidy.data <- dcast(t1.melt,subject+activity~variable,mean)
+analysis.data <- dcast(t1.melt,subject+activity~variable,mean)
 
 
 
