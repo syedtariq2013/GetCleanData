@@ -55,6 +55,9 @@ t1<-x.combined # just to shorten the typing
 
 # melt t1
 t1.melt <- melt(t1,id=c("subject","activity"))
+
+# calculate the averages using dcast to aggregrate according to subject and activity.
+# m1 is the resulting data frame.
 m1<-dcast(t1.melt,subject+activity~variable,mean)
 
 
