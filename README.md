@@ -52,13 +52,13 @@ Created one R script called run_analysis.R that does the following.
 
 5. Replace the activity codes with the activity labels
 
-6. Combine each of the train and test sets into a single data frame (final data frame)
+6. Combine each of the train and test sets into a single data frame (final data frame submitted as the Tidy Data)
 
-7. File names.txt is derived from features.txt and contains the column names to be used in the final data frame. Names in features.txt are not very R-friendly. All hyphens, parenthesis were replaced by periods. (Although, mixed-case and periods are not considered standard, they were retained to keep the names readable).
+7. File names.txt is derived from features.txt and contains the column names to be used in the final data frame. Names in features.txt are not very R-friendly. All hyphens, parenthesis were replaced by periods. (Although, mixed-case and periods are not considered standard, they were retained to keep the names readable). 
+
 
 8. Using 'melt' the data frame is re-shaped so the subject and activity label codes are first and the data frame is sorted with the subject and activity labels as keys.
 
 9. Using dcast and mean the averages are calculated for each subject-activity aggregate.
 
-10. This yeilds a tidy data frame
-
+10. This yeilds a tidy data frame for the <b>analysis</b> part
