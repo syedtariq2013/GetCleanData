@@ -35,6 +35,7 @@ x.test.all <- cbind(x.test.all,y.test.as.labels)
 # combine the train and test data frames
 x.combined <- rbind(x.train.all,x.test.all)
 
+#
 # Uses descriptive activity names to name the activities in the data set
 # Appropriately labels the data set with descriptive activity names. 
 # ----------------------------------------------------------------------
@@ -56,9 +57,12 @@ t1<-x.combined # just to shorten the typing
 # melt t1
 t1.melt <- melt(t1,id=c("subject","activity"))
 
+# Following creates a second, independent tidy data set with the average of each variable for 
+# each activity and each subject. 
 # calculate the averages using dcast to aggregrate according to subject and activity.
-# m1 is the resulting data frame.
-m1<-dcast(t1.melt,subject+activity~variable,mean)
+# tidy.data is the resulting data frame. This df is the required 'tidy data'. Using a write command it can 
+# be saved as a file.
+tidy.data <- dcast(t1.melt,subject+activity~variable,mean)
 
 
 
